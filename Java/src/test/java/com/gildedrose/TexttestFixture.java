@@ -1,9 +1,12 @@
 package com.gildedrose;
 
+import static java.nio.file.Path.of;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+
 public class TexttestFixture {
     public static void main(String[] args) {
-        System.out.println("OMGHAI!");
-
         Item[] items = new Item[] {
                 new Item("+5 Dexterity Vest", 10, 20), //
                 new Item("Aged Brie", 2, 0), //
@@ -22,6 +25,8 @@ public class TexttestFixture {
         if (args.length > 0) {
             days = Integer.parseInt(args[0]) + 1;
         }
+
+        Path filePath = of("src", "test", "resources", "");
 
         for (int i = 0; i < days; i++) {
             System.out.println("-------- day " + i + " --------");
