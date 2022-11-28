@@ -38,6 +38,12 @@ class GildedRose {
       }
     } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
       item.sellIn = item.sellIn + 1;
+    } else if (item.name.equals("Conjured Mana Cake")) {
+        if (item.sellIn < 0) {
+            decreaseQuality(item, 4);
+        } else {
+            decreaseQuality(item, 2);
+        }
     } else {
       if (item.sellIn < 0) {
         decreaseQuality(item, 2);
