@@ -19,9 +19,9 @@ class GildedRose {
     // first block
     if (item.name.equals("Aged Brie")) {
 
-      increaseQuality(item, 1);
-
       if (item.sellIn < 0) {
+        increaseQuality(item, 2);
+      } else {
         increaseQuality(item, 1);
       }
 
@@ -39,17 +39,16 @@ class GildedRose {
     } else if (item.name.equals("Sulfuras, Hand of Ragnaros")) {
       item.sellIn = item.sellIn + 1;
     } else {
-      decreaseQuality(item);
       if (item.sellIn < 0) {
-        decreaseQuality(item);
+        decreaseQuality(item, 2);
+      } else {
+        decreaseQuality(item, 1);
       }
     }
   }
 
-  private void decreaseQuality(Item item) {
-    if (item.quality > 0) {
-      item.quality = item.quality - 1;
-    }
+  private void decreaseQuality(Item item, int deterioration) {
+    item.quality = Math.max(item.quality - deterioration, 0);
   }
 
   private void increaseQuality(Item item, int improvement) {
