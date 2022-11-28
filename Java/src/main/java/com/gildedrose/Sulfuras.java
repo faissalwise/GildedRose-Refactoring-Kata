@@ -6,6 +6,10 @@ public class Sulfuras extends Item {
     }
 
     @Override
-    void updateItemQuality() {
+    protected void updateItemQualityForToday() {
+    }
+
+    @Override
+    protected void growByOneDay() {
     }
 }

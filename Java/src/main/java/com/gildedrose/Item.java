@@ -2,9 +2,7 @@ package com.gildedrose;
 
 public abstract class Item {
     public String name;
-
     public int sellIn;
-
     public int quality;
 
     public Item(String name, int sellIn, int quality) {
@@ -26,5 +24,14 @@ public abstract class Item {
         quality = Math.min(quality + improvement, 50);
     }
 
-    abstract void updateItemQuality();
+    void updateItemQuality() {
+        growByOneDay();
+        updateItemQualityForToday();
+    }
+
+    protected void growByOneDay() {
+        sellIn--;
+    }
+
+    protected abstract void updateItemQualityForToday();
 }

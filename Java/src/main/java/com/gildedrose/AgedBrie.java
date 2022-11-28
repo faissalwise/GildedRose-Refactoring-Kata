@@ -6,8 +6,7 @@ public class AgedBrie extends Item {
     }
 
     @Override
-    void updateItemQuality() {
-        sellIn = sellIn - 1;
+    protected void updateItemQualityForToday() {
         if (sellIn < 0) {
             increaseQuality(2);
         } else {
